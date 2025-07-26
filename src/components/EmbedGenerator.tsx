@@ -217,41 +217,63 @@ export const EmbedGenerator = () => {
                 </TabsList>
                 
                 <TabsContent value="iframe" className="space-y-4">
-                  <div className="relative">
-                    <pre className="bg-secondary p-4 rounded-lg text-sm overflow-x-auto border">
-                      <code>{generateIframeCode()}</code>
-                    </pre>
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      onClick={() => copyToClipboard(generateIframeCode(), 'Iframe')}
-                      className="absolute top-2 right-2"
-                    >
-                      <Copy className="h-4 w-4" />
-                    </Button>
+                  <div className="relative group">
+                    <div className="bg-secondary rounded-lg border overflow-hidden">
+                      <div className="flex items-center justify-between p-3 border-b bg-muted/50">
+                        <span className="text-xs font-medium text-muted-foreground">HTML Iframe Embed</span>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => copyToClipboard(generateIframeCode(), 'Iframe')}
+                          className="h-7 px-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Copy className="h-3 w-3 mr-1" />
+                          Copy
+                        </Button>
+                      </div>
+                      <div className="p-4">
+                        <code className="text-sm block leading-relaxed whitespace-pre-wrap break-all font-mono">
+                          {generateIframeCode()}
+                        </code>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    Standard iframe embed - works everywhere
-                  </p>
+                  <div className="flex items-start gap-2 p-3 bg-muted/30 rounded-lg">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-xs text-muted-foreground">
+                      Standard iframe embed that works everywhere. Responsive width with fixed height.
+                    </p>
+                  </div>
                 </TabsContent>
                 
                 <TabsContent value="script" className="space-y-4">
-                  <div className="relative">
-                    <pre className="bg-secondary p-4 rounded-lg text-sm overflow-x-auto border">
-                      <code>{generateScriptCode()}</code>
-                    </pre>
-                    <Button
-                      size="sm"
-                      variant="secondary"
-                      onClick={() => copyToClipboard(generateScriptCode(), 'Script')}
-                      className="absolute top-2 right-2"
-                    >
-                      <Copy className="h-4 w-4" />
-                    </Button>
+                  <div className="relative group">
+                    <div className="bg-secondary rounded-lg border overflow-hidden">
+                      <div className="flex items-center justify-between p-3 border-b bg-muted/50">
+                        <span className="text-xs font-medium text-muted-foreground">JavaScript Embed</span>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => copyToClipboard(generateScriptCode(), 'Script')}
+                          className="h-7 px-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <Copy className="h-3 w-3 mr-1" />
+                          Copy
+                        </Button>
+                      </div>
+                      <div className="p-4">
+                        <code className="text-sm block leading-relaxed whitespace-pre-wrap break-all font-mono">
+                          {generateScriptCode()}
+                        </code>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    Smart embed with responsive design
-                  </p>
+                  <div className="flex items-start gap-2 p-3 bg-muted/30 rounded-lg">
+                    <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                    <p className="text-xs text-muted-foreground">
+                      Smart embed with responsive design and automatic optimization.
+                    </p>
+                  </div>
                 </TabsContent>
               </Tabs>
             </div>
