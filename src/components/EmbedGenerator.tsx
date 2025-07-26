@@ -85,9 +85,56 @@ export const EmbedGenerator = () => {
       }
     }
     
+    // TikTok URLs
+    if (inputUrl.includes('tiktok.com/')) {
+      const videoId = inputUrl.split('@')[1]?.split('/video/')[1]?.split('?')[0];
+      if (videoId) {
+        return `<blockquote class="tiktok-embed" cite="${inputUrl}" data-video-id="${videoId}" style="max-width: 605px;min-width: 325px;" >
+<section></section>
+</blockquote>
+<script async src="https://www.tiktok.com/embed.js"></script>`;
+      }
+    }
+    
     // Twitter/X URLs
     if (inputUrl.includes('twitter.com/') || inputUrl.includes('x.com/')) {
       return `<blockquote class="twitter-tweet"><a href="${inputUrl}"></a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`;
+    }
+    
+    // Facebook URLs
+    if (inputUrl.includes('facebook.com/') || inputUrl.includes('fb.watch/')) {
+      const encodedUrl = encodeURIComponent(inputUrl);
+      return `<iframe src="https://www.facebook.com/plugins/post.php?href=${encodedUrl}&show_text=true&width=500" width="100%" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
+    }
+    
+    // Google Drive URLs (documents, spreadsheets, presentations)
+    if (inputUrl.includes('drive.google.com/')) {
+      let embedUrl = inputUrl;
+      
+      // Convert sharing URL to embed URL
+      if (inputUrl.includes('/file/d/')) {
+        const fileId = inputUrl.split('/file/d/')[1].split('/')[0];
+        embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+      } else if (inputUrl.includes('docs.google.com/document/d/')) {
+        const docId = inputUrl.split('/document/d/')[1].split('/')[0];
+        embedUrl = `https://docs.google.com/document/d/${docId}/edit?usp=sharing&embedded=true`;
+      } else if (inputUrl.includes('docs.google.com/spreadsheets/d/')) {
+        const sheetId = inputUrl.split('/spreadsheets/d/')[1].split('/')[0];
+        embedUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/edit?usp=sharing&embedded=true`;
+      } else if (inputUrl.includes('docs.google.com/presentation/d/')) {
+        const presentationId = inputUrl.split('/presentation/d/')[1].split('/')[0];
+        embedUrl = `https://docs.google.com/presentation/d/${presentationId}/edit?usp=sharing&embedded=true`;
+      }
+      
+      return `<iframe src="${embedUrl}" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
+    }
+    
+    // Loom URLs
+    if (inputUrl.includes('loom.com/')) {
+      const videoId = inputUrl.split('loom.com/share/')[1]?.split('?')[0];
+      if (videoId) {
+        return `<iframe src="https://www.loom.com/embed/${videoId}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>`;
+      }
     }
     
     // CodePen URLs
@@ -118,8 +165,24 @@ export const EmbedGenerator = () => {
       return `<script async src="https://embedgen.example.com/vimeo.js" data-url="${inputUrl}"></script>`;
     }
     
+    if (inputUrl.includes('tiktok.com')) {
+      return `<script async src="https://www.tiktok.com/embed.js"></script>`;
+    }
+    
     if (inputUrl.includes('twitter.com') || inputUrl.includes('x.com')) {
       return `<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>`;
+    }
+    
+    if (inputUrl.includes('facebook.com') || inputUrl.includes('fb.watch')) {
+      return `<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>`;
+    }
+    
+    if (inputUrl.includes('drive.google.com') || inputUrl.includes('docs.google.com')) {
+      return `<script async src="https://embedgen.example.com/gdrive.js" data-url="${inputUrl}"></script>`;
+    }
+    
+    if (inputUrl.includes('loom.com')) {
+      return `<script async src="https://embedgen.example.com/loom.js" data-url="${inputUrl}"></script>`;
     }
     
     return `<script async src="https://embedgen.example.com/widget.js" data-url="${inputUrl}"></script>`;
