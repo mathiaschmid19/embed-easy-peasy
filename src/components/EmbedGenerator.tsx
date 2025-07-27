@@ -249,19 +249,6 @@ export const EmbedGenerator = () => {
                 />
               </div>
               
-              {/* Metadata Info */}
-              <div className="border border-glass rounded-lg p-4 bg-card/50">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-lg">{metadata.favicon}</span>
-                  <Badge variant="secondary">{metadata.siteName}</Badge>
-                </div>
-                <h4 className="font-semibold text-lg line-clamp-2 mb-2">{metadata.title}</h4>
-                <p className="text-muted-foreground text-sm line-clamp-3 mb-3">{metadata.description}</p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <ExternalLink className="h-4 w-4" />
-                  {metadata.url}
-                </div>
-              </div>
             </div>
           </Card>
 
