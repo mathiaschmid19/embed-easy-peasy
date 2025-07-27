@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header';
 import { EmbedGenerator } from '@/components/EmbedGenerator';
 import { Features } from '@/components/Features';
+import { SupportedPlatforms } from '@/components/SupportedPlatforms';
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       {/* Hero Section */}
       <main className="container mx-auto px-4 py-16 space-y-20">
         <EmbedGenerator />
+        <SupportedPlatforms />
         <Features />
       </main>
       
