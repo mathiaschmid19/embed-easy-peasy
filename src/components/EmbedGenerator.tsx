@@ -197,7 +197,7 @@ export const EmbedGenerator = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-8">
+    <div className="w-full max-w-6xl mx-auto space-y-8">
       {/* URL Input Form */}
       <Card className="p-8 bg-glass border-glass backdrop-blur-xl shadow-glow">
         <form onSubmit={handleSubmit} className="space-y-6">
