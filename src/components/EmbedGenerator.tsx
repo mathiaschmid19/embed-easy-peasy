@@ -126,7 +126,7 @@ export const EmbedGenerator = () => {
         embedUrl = `https://docs.google.com/presentation/d/${presentationId}/preview?usp=embed_googleplus`;
       }
       
-      return `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 129.4118%;"><iframe src="${embedUrl}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>`;
+      return `<iframe src="${embedUrl}" style="width: 100%; height: 100%; border: 0;" allowfullscreen></iframe>`;
     }
     
     // Loom URLs
