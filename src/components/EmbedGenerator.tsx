@@ -244,7 +244,7 @@ export const EmbedGenerator = () => {
               {/* Live Embed Preview */}
               <div className="border border-glass rounded-lg overflow-hidden bg-card">
                 <div 
-                  className="w-full h-80 bg-secondary/20"
+                  className="w-full aspect-video bg-secondary/20"
                   dangerouslySetInnerHTML={{ __html: generateIframeCode() }}
                 />
               </div>
