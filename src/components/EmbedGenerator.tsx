@@ -114,19 +114,19 @@ export const EmbedGenerator = () => {
       // Convert sharing URL to embed URL
       if (inputUrl.includes('/file/d/')) {
         const fileId = inputUrl.split('/file/d/')[1].split('/')[0];
-        embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+        embedUrl = `https://drive.google.com/file/d/${fileId}/preview?usp=embed_googleplus`;
       } else if (inputUrl.includes('docs.google.com/document/d/')) {
         const docId = inputUrl.split('/document/d/')[1].split('/')[0];
-        embedUrl = `https://docs.google.com/document/d/${docId}/edit?usp=sharing&embedded=true`;
+        embedUrl = `https://docs.google.com/document/d/${docId}/preview?usp=embed_googleplus`;
       } else if (inputUrl.includes('docs.google.com/spreadsheets/d/')) {
         const sheetId = inputUrl.split('/spreadsheets/d/')[1].split('/')[0];
-        embedUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/edit?usp=sharing&embedded=true`;
+        embedUrl = `https://docs.google.com/spreadsheets/d/${sheetId}/preview?usp=embed_googleplus`;
       } else if (inputUrl.includes('docs.google.com/presentation/d/')) {
         const presentationId = inputUrl.split('/presentation/d/')[1].split('/')[0];
-        embedUrl = `https://docs.google.com/presentation/d/${presentationId}/edit?usp=sharing&embedded=true`;
+        embedUrl = `https://docs.google.com/presentation/d/${presentationId}/preview?usp=embed_googleplus`;
       }
       
-      return `<iframe src="${embedUrl}" width="100%" height="400" frameborder="0" allowfullscreen></iframe>`;
+      return `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 129.4118%;"><iframe src="${embedUrl}" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>`;
     }
     
     // Loom URLs
