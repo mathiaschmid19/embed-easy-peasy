@@ -18,6 +18,16 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'logo': ['Outfit', 'sans-serif'],
+				'heading': ['Inter', 'sans-serif'],
+				'body': ['Inter', 'sans-serif'],
+				'sans': ['Inter', 'sans-serif'],
+			},
+			fontWeight: {
+				'heading': '500',
+				'body': '400',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

@@ -158,11 +158,11 @@ export const EmbedGenerator = () => {
     const inputUrl = metadata.url;
     
     if (inputUrl.includes('youtube.com') || inputUrl.includes('youtu.be')) {
-      return `<script async src="https://embedgen.example.com/youtube.js" data-url="${inputUrl}"></script>`;
+      return `<script async src="https://LinkFrame.example.com/youtube.js" data-url="${inputUrl}"></script>`;
     }
     
     if (inputUrl.includes('vimeo.com')) {
-      return `<script async src="https://embedgen.example.com/vimeo.js" data-url="${inputUrl}"></script>`;
+      return `<script async src="https://LinkFrame.example.com/vimeo.js" data-url="${inputUrl}"></script>`;
     }
     
     if (inputUrl.includes('tiktok.com')) {
@@ -178,14 +178,14 @@ export const EmbedGenerator = () => {
     }
     
     if (inputUrl.includes('drive.google.com') || inputUrl.includes('docs.google.com')) {
-      return `<script async src="https://embedgen.example.com/gdrive.js" data-url="${inputUrl}"></script>`;
+      return `<script async src="https://LinkFrame.example.com/gdrive.js" data-url="${inputUrl}"></script>`;
     }
     
     if (inputUrl.includes('loom.com')) {
-      return `<script async src="https://embedgen.example.com/loom.js" data-url="${inputUrl}"></script>`;
+      return `<script async src="https://LinkFrame.example.com/loom.js" data-url="${inputUrl}"></script>`;
     }
     
-    return `<script async src="https://embedgen.example.com/widget.js" data-url="${inputUrl}"></script>`;
+    return `<script async src="https://LinkFrame.example.com/widget.js" data-url="${inputUrl}"></script>`;
   };
 
   const copyToClipboard = (text: string, type: string) => {

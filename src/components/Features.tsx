@@ -20,38 +20,37 @@ const features = [
   {
     icon: Palette,
     title: 'Customizable',
-    description: 'Adjust dimensions, styling, and embed behavior'
+    description: 'Tailor embed appearance to match your brand perfectly'
   }
 ];
 
 export const Features = () => {
   return (
-    <section className="w-full max-w-6xl mx-auto">
-      <div className="text-center space-y-4 mb-12">
-        <h2 className="text-3xl font-bold">Why Choose EmbedGen?</h2>
+    <div className="w-full max-w-6xl mx-auto space-y-12">
+      <div className="text-center space-y-4">
+        <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">Why Choose LinkFrame?</h2>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-          The modern way to embed content from any website with beautiful, responsive embeds
+          The most powerful and developer-friendly embed generator on the web
         </p>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
         {features.map((feature, index) => (
-          <Card 
-            key={index} 
-            className="p-6 bg-glass border-glass backdrop-blur-xl hover:shadow-glow transition-all duration-300 group"
-          >
+          <Card key={index} className="p-6 border-glass bg-glass hover:bg-secondary/20 transition-colors group">
             <div className="space-y-4">
               <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                 <feature.icon className="h-6 w-6 text-white" />
               </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm">{feature.description}</p>
+              <div className="space-y-2">
+                <h3 className="font-semibold text-lg">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             </div>
           </Card>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
